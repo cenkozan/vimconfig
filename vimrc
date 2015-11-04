@@ -1,17 +1,17 @@
-	set nocompatible              " be iMproved, required
-	filetype off                  " required
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-	" set the runtime path to include Vundle and initialize
-	set rtp+=~/.vim/bundle/vundle/
-	call vundle#rc()
-	" alternatively, pass a path where Vundle should install plugins
-	"let path = '~/some/path/here'
-	"call vundle#rc(path)
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+" alternatively, pass a path where Vundle should install plugins
+"let path = '~/some/path/here'
+"call vundle#rc(path)
 
-	" let Vundle manage Vundle, required
-	Plugin 'gmarik/vundle'
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
 
-	" The following are examples of different formats supported.
+" The following are examples of different formats supported.
 " Keep Plugin commands between here and filetype plugin indent on.
 " scripts on GitHub repos
 Plugin 'tpope/vim-fugitive'
@@ -23,9 +23,23 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'honza/vim-snippets'
 Plugin 'garbas/vim-snipmate'
+Plugin 'tpope/vim-markdown'
+Plugin 'surround.vim'
+Plugin 'neilagabriel/vim-geeknote'
 " Needed for session.vim
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-session'
+Plugin 'xolox/vim-notes'
+Plugin 'tristen/vim-sparkup'
+Plugin 'dhruvasagar/vim-table-mode'
+" Vim-Dracula colorset
+Plugin 'zenorocha/dracula-theme', {'rtp': 'vim/'}
+" vim-jsx (Facebook React jsx, jsx to js converter)
+Plugin 'mxw/vim-jsx'
+Plugin 'syntastic'
+Plugin 'pangloss/vim-javascript'
+Plugin 'justinj/vim-react-snippets'
+
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -36,6 +50,11 @@ Plugin 'xolox/vim-session'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " ...
+
+" jsx highlighting in js files
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0 
+let g:syntastic_javascript_checkers = ['eslint']
 
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
@@ -51,9 +70,17 @@ filetype plugin indent on     " required
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
 
+" Setting default font to Input Mono 13 size
+set guifont=Input\ Mono:h13
 
+" Vim-notes
+let g:notes_directories = ['~/.vim/Notes']
 
+" Set spell
+set spell spelllang=en_us
 
+" Open .vimrc
+nmap <silent> <Leader>v :e ~/.vim/vimrc <CR>
 
 " Pathogen stuff are getting commented out. 4/21/14
 " turn filetype detection off and, even if it's not strictly
@@ -72,7 +99,7 @@ filetype plugin indent on     " required
 
 " For text file
 autocmd FileType txt imap <Tab> <C-n> 
-autocmd FileType txt setlocal spell spelllang=en
+autocmd FileType txt setlocal spell spelllang=en_us
 
 " Google Calendar
 let g:calendar_google_calendar = 1
@@ -108,10 +135,10 @@ set guioptions-=T
 set go-=L
 
 " Spark up necessities
-let g:sparkup = 'sparkup'
-let g:sparkupArgs = '--no-last-newline'
-let g:sparkupExecuteMapping = '<C-r>'
-let g:sparkupNextMapping = '<C-n>'
+" let g:sparkup = 'sparkup'
+" let g:sparkupArgs = '--no-last-newline'
+" let g:sparkupExecuteMapping = '<C-r>'
+" let g:sparkupNextMapping = '<C-n>'
 
 " ctrl-space is omni-completion
 imap <c-space> <c-x><c-o>
@@ -153,3 +180,13 @@ set wildmode=longest,list
 
 " taglist plugin necessity
 let Tlist_Ctags_Cmd='/usr/local/Cellar/ctags/5.8/bin/ctags'
+
+" insert mode movement
+inoremap <C-h> <C-o>h
+inoremap <C-l> <C-o>l
+
+let g:session_autosave = 'no'
+
+"vim-geeknote settings
+let g:GeeknoteNotebooks=['f9e0157d-0851-428f-beee-8d7b8f34e097'] 
+let g:GeeknoteFormat="markdown"
