@@ -2,8 +2,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
 " alternatively, pass a path where Vundle should install plugins
 "let path = '~/some/path/here'
 "call vundle#rc(path)
@@ -51,11 +52,6 @@ Plugin 'justinj/vim-react-snippets'
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " ...
 
-" jsx highlighting in js files
-" Allow JSX in normal JS files
-let g:jsx_ext_required = 0 
-let g:syntastic_javascript_checkers = ['eslint']
-
 filetype plugin indent on     " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
@@ -65,10 +61,16 @@ filetype plugin indent on     " required
 " :PluginInstall(!)    - install (update) plugins
 " :PluginSearch(!) foo - search (or refresh cache first) for foo
 " :PluginClean(!)      - confirm (or auto-approve) removal of unused plugins
-"
+
+call vundle#end()					"required"
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Plugin commands are not allowed.
 " Put your stuff after this line
+
+" jsx highlighting in js files
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0 
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Setting default font to Input Mono 13 size
 set guifont=Input\ Mono:h13
