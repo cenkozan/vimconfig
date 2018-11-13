@@ -1,4 +1,11 @@
-This is my Vim config.
-#h2 Don't forget
-The content of .vimrc is 
+My Vim config.
+
+
+1. The content of .vimrc:
 runtime vimrc
+
+2. git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+3. vim
+
+4. :PluginInstall
