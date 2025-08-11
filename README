@@ -6,6 +6,8 @@ runtime vimrc
 
 2. git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-3. vim
+3. copy vimrc to ~/.vim/
 
-4. :PluginInstall
+4. run vim
+
+5. :PluginInstall
